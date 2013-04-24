@@ -9,7 +9,10 @@
       <p>
         <a href="http://localhost:3000/pictures/<%= pic.id %>"><%= pic.caption %></a>
         <a href="http://localhost:3000/pictures/<%= pic.id %>/edit">Edit</a>
-        <a href="http://localhost:3000/pictures/<%= pic.id %>/delete">Delete</a>
+
+        <%= link_to "Delete", "http://localhost:3000/pictures/#{pic.id}",
+                          :method => :delete, :confirm => "Really?" %>
+        <!-- <a href="http://localhost:3000/pictures/<%= pic.id %>/delete">Delete</a> -->
       </p>
     </li>
   <% end %>
