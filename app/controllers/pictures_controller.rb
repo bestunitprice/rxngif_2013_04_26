@@ -11,7 +11,7 @@ class PicturesController < ApplicationController
 
   end
 
-  def insert_picture
+  def create
     p = Picture.new
 
     p.source = params[:source]
@@ -38,6 +38,13 @@ class PicturesController < ApplicationController
 
     redirect_to "http://localhost:3000/pictures/#{params[:number]}"
   end
+
+  def delete_picture
+    p = Picture.find_by_id(params["number"])
+    p.destroy
+    redirect_to "/pictures"
+  end
+
 end
 
 
