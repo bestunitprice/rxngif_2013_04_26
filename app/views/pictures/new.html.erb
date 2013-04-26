@@ -3,9 +3,25 @@
 <!-- <a href="http://localhost:3000/pictures">Back</a> -->
 <%= link_to "Back", "http://localhost:3000/pictures" %>
 
-<form action="/pictures" method="post">
-  Image URL: <input type="text" name="source">
-  Caption: <input type="text" name="caption">
-  Favorite? <input type="checkbox" name="favorite">
-  <input type="submit" name="submit">
-</form>
+<%= form_tag("/pictures", :method => :post) do %>
+  <!-- <label for="pic_source">Image URL:</label> -->
+  <%= label_tag :source, "Image URL:" %>
+
+  <!-- <input id="source" type="text" name="source"> -->
+  <%= text_field_tag :source %>
+
+  <!-- <label for="caption">Caption:</label> -->
+  <%= label_tag :caption %>
+
+  <!-- <input id="caption" type="text" name="caption"> -->
+  <%= text_field_tag :caption %>
+
+  <!-- <label for="favorite">Favorite?</label> -->
+  <%= label_tag :favorite %>
+
+  <!-- <input id="favorite" type="checkbox" name="favorite"> -->
+  <%= check_box_tag :favorite %>
+
+  <!-- <input type="submit" name="submit"> -->
+  <%= submit_tag "Create Picture" %>
+<% end %>
