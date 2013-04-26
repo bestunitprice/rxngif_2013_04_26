@@ -1,18 +1,21 @@
 <h1>List of Pictures</h1>
 
-<a href="http://localhost:3000/pictures/new">Add A New Picture</a>
+<!-- <a href="http://localhost:3000/pictures/new">Add A New Picture</a> -->
+<%= link_to "Add A New Picture", "http://localhost:3000/pictures/new" %>
 
 <ul>
   <% @pictures.each do |pic| %>
     <li>
-      <img width="200" src="<%= pic.source %>">
+      <!-- <img width="200" src="<%= pic.source %>"> -->
+      <%= image_tag pic.source, :width => 200 %>
       <p>
-        <a href="http://localhost:3000/pictures/<%= pic.id %>"><%= pic.caption %></a>
-        <a href="http://localhost:3000/pictures/<%= pic.id %>/edit">Edit</a>
+        <!-- <a href="http://localhost:3000/pictures/<%= pic.id %>"><%= pic.caption %></a> -->
+        <%= link_to pic.caption, "http://localhost:3000/pictures/#{pic.id}" %>
 
-        <%= link_to "Delete", "http://localhost:3000/pictures/#{pic.id}",
-                          :method => :delete, :confirm => "Really?" %>
-        <!-- <a href="http://localhost:3000/pictures/<%= pic.id %>/delete">Delete</a> -->
+        <!-- <a href="http://localhost:3000/pictures/<%= pic.id %>/edit">Edit</a> -->
+        <%= link_to "Edit", "http://localhost:3000/pictures/#{pic.id}/edit" %>
+
+        <%= link_to "Delete", "http://localhost:3000/pictures/#{pic.id}", :method => :delete, :confirm => "Really?" %>
       </p>
     </li>
   <% end %>

@@ -1,6 +1,7 @@
 <h1>Add A New Picture</h1>
 
-<a href="http://localhost:3000/pictures">Back</a>
+<!-- <a href="http://localhost:3000/pictures">Back</a> -->
+<%= link_to "Back", "http://localhost:3000/pictures" %>
 
 <form action="/pictures" method="post">
   Image URL: <input type="text" name="source">
